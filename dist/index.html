@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="format-detection" content="telephone=no">
+	<title>トップページ</title>
+	<meta content="トップページです" name="description">
+	<meta content="トップページ" name="keywords">
+	<meta content="トップページ" property="og:title">
+	<meta content="トップページです" property="og:description">
+	<meta content="https://example.com/assets/img/ogp.jpg" property="og:image">
+	<meta content="https://example.com/index.html" property="og:url">
+	<meta content="website" property="og:type">
+	<meta content="ja_JP" property="og:locale">
+	<link rel="stylesheet" href="/assets/css/common.css">
+</head>
+
+<body class="top">
+	<div class="l_contents">
+		<header class="l-header">
+			<div class="header__container">
+				<h1 class="header__logo">ロゴ</h1>
+			</div>
+		</header>
+		<!--nav-->
+		<!--    ul.u-d-fx.u-jc-sb.u-bc-blue-->
+		<!--        li.u-text-center.u-w-25.p-nav-->
+		<!--            a(href=pages.content_a.url).u-color-white.u-d-b #{pages.content_a.name}-->
+		<!--        li.u-text-center.u-w-25.p-nav-->
+		<!--            a(href=pages.content_b.url).u-color-white.u-d-b #{pages.content_b.name}-->
+		<!--        li.u-text-center.u-w-25.p-nav-->
+		<!--            a(href=pages.content_c.url).u-color-white.u-d-b #{pages.content_c.name}-->
+		<!--        if content_d_state=="public"-->
+		<!--            li.u-text-center.u-w-25.p-nav-->
+		<!--                a(href=pages.content_d.url).u-color-white.u-d-b #{pages.content_d.name}-->
+		<!--        else if content_d_state=="comingsoon"-->
+		<!--            li-->
+		<!--                img(src=image_path+"/shared/nav_content_d_comingsoon.png" alt=pages.content_d.name+" Coming Soon...")-->
+		<main class="main">
+			<div id="app">
+				<h2>page.title</h2>
+				<ul class="tabMenu">
+					<li class="tabMenu__item" @click="isSelect('1')">All</li>
+					<li class="tabMenu__item" @click="isSelect('2')">2</li>
+					<li class="tabMenu__item" @click="isSelect('3')">3</li>
+				</ul>
+				<div class="tabContents">
+					<div class="tabContents__block" v-show="isActive === '1'">こんてんつ１</div>
+					<div class="tabContents__block" v-show="isActive === '2'">こんてんつ2</div>
+					<div class="tabContents__block" v-show="isActive === '3'">こんてんつ３</div>
+				</div>
+			</div>
+		</main>
+	</div>
+	<footer class="l-footer">
+		<div class="l-footer__container"></div>
+		<p><small>copyright</small></p>
+	</footer>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+	<script type="text/javascript" src="/assets/js/scripts.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+extends _layout.pug
+
+block vars
+    include ./_config.pug
+    - var key = "top"
+    - var page = pages[key]
+
+block contents
+    #app
+        h2 page.title
+        ul.tabMenu
+            li.tabMenu__item(@click="isSelect('1')") All
+            li.tabMenu__item(@click="isSelect('2')") 2
+            li.tabMenu__item(@click="isSelect('3')") 3
+
+        .tabContents
+            .tabContents__block(v-show="isActive === '1'") こんてんつ１
+            .tabContents__block(v-show="isActive === '2'") こんてんつ2
+            .tabContents__block(v-show="isActive === '3'") こんてんつ３
+
+        p {{message}}
+            swiper(ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate")
+                // slides
+                swiper-slide I'm Slide 1
+                swiper-slide I'm Slide 2
+                swiper-slide I'm Slide 3
+                swiper-slide I'm Slide 4
+                swiper-slide I'm Slide 5
+                swiper-slide I'm Slide 6
+                swiper-slide I'm Slide 7
+                // Optional controls
+                .swiper-pagination(slot="pagination")
+                .swiper-button-prev(slot="button-prev")
+                .swiper-button-next(slot="button-next")
+            local-swiper(ref="awesomeSwiperB" :options="swiperOptionB")
+                local-slide(v-for="i in 3") I'm Slide {{ i }}
+                .swiper-pagination(slot="pagination")
+

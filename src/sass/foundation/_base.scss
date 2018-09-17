@@ -1,0 +1,62 @@
+@import "../foundation/function/_rem";
+@import "../foundation/variable/_breakpoint";
+@import "../foundation/mixin/_mq-max";
+@import "../foundation/mixin/_mq-min";
+
+body {
+  font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: map-get($_font-size, sm);
+  @include _mq-min(){
+    font-size: map-get($_font-size, md);
+  }
+}
+
+.tabMenu {
+  display: flex;
+}
+
+.tabMenu__item {
+  width: 40px;
+  border-right: 1px solid #000;
+  background-color: #f00;
+  padding: 15px 0;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+}
+
+.tabContents {
+  width: 400px;
+  height: 300px;
+  border: 1px solid #000000;
+  padding: 10px;
+}
+.swiper-container {
+  height: 300px;
+  width: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 700;
+  background-color: #eee;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
