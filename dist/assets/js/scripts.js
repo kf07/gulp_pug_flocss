@@ -30,4 +30,8 @@ var galleryTop = new Swiper('.gallery-top', {
     thumbs: {
         swiper: galleryThumbs,
     },
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+    },
 });

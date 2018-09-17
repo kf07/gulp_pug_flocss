@@ -195,7 +195,7 @@ table {
 
 .swiper-slide {
 	background-position: center;
-	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .gallery-top {
@@ -224,6 +224,15 @@ table {
 	margin: auto;
 	position: relative;
 	width: 80%;
+}
+
+.swiper__text {
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	text-align: center;
 }
 
 .u-d-fx {
