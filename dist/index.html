@@ -15,6 +15,7 @@
 	<meta content="https://example.com/index.html" property="og:url">
 	<meta content="website" property="og:type">
 	<meta content="ja_JP" property="og:locale">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/css/swiper.css">
 	<link rel="stylesheet" href="/assets/css/common.css">
 </head>
 
@@ -52,6 +53,37 @@
 					<div class="tabContents__block" v-show="isActive === '2'">こんてんつ2</div>
 					<div class="tabContents__block" v-show="isActive === '3'">こんてんつ３</div>
 				</div>
+				<div class="swiper-slides">
+					<div class="swiper-container gallery-top">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum01.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum02.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum03.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum04.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum05.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum01.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum02.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum03.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum04.jpg)"></div>
+						</div>
+						<!-- Add Arrows-->
+						<div class="swiper-button-next swiper-button-white"></div>
+						<div class="swiper-button-prev swiper-button-white"></div>
+					</div>
+					<div class="swiper-container gallery-thumbs">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum01.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum02.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum03.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum04.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum05.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum01.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum02.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum03.jpg)"></div>
+							<div class="swiper-slide" style="background-image:url(/assets/img/thum04.jpg)"></div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</main>
 	</div>
@@ -59,8 +91,9 @@
 		<div class="l-footer__container"></div>
 		<p><small>copyright</small></p>
 	</footer>
-	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
-	<script type="text/javascript" src="/assets/js/scripts.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.4.1/js/swiper.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+	<script src="/assets/js/scripts.js"></script>
 </body>
 
 </html>

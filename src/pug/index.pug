@@ -17,22 +17,31 @@ block contents
             .tabContents__block(v-show="isActive === '1'") こんてんつ１
             .tabContents__block(v-show="isActive === '2'") こんてんつ2
             .tabContents__block(v-show="isActive === '3'") こんてんつ３
+        .swiper-slides
+            .swiper-container.gallery-top
+                .swiper-wrapper
+                    .swiper-slide(style="background-image:url(/assets/img/thum01.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum02.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum03.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum04.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum05.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum01.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum02.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum03.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum04.jpg)")
+                // Add Arrows
+                .swiper-button-next.swiper-button-white
+                .swiper-button-prev.swiper-button-white
+            .swiper-container.gallery-thumbs
+                .swiper-wrapper
+                    .swiper-slide(style="background-image:url(/assets/img/thum01.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum02.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum03.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum04.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum05.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum01.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum02.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum03.jpg)")
+                    .swiper-slide(style="background-image:url(/assets/img/thum04.jpg)")
 
-        p {{message}}
-            swiper(ref="awesomeSwiperA" :options="swiperOptionA" @set-translate="onSetTranslate")
-                // slides
-                swiper-slide I'm Slide 1
-                swiper-slide I'm Slide 2
-                swiper-slide I'm Slide 3
-                swiper-slide I'm Slide 4
-                swiper-slide I'm Slide 5
-                swiper-slide I'm Slide 6
-                swiper-slide I'm Slide 7
-                // Optional controls
-                .swiper-pagination(slot="pagination")
-                .swiper-button-prev(slot="button-prev")
-                .swiper-button-next(slot="button-next")
-            local-swiper(ref="awesomeSwiperB" :options="swiperOptionB")
-                local-slide(v-for="i in 3") I'm Slide {{ i }}
-                .swiper-pagination(slot="pagination")
 

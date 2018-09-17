@@ -42,27 +42,6 @@ html {
 	width: 400px;
 }
 
-.swiper-container {
-	height: 300px;
-	width: 100%;
-}
-
-.swiper-slide {
-	align-items: center;
-	background-color: #eee;
-	-webkit-box-align: center;
-	-webkit-box-pack: center;
-	display: flex;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	-ms-flex-align: center;
-	-ms-flex-pack: center;
-	font-size: 38px;
-	font-weight: 700;
-	justify-content: center;
-	text-align: center;
-}
-
 html,
 body,
 div,
@@ -206,6 +185,46 @@ table {
 /* 色が変更されることも考慮して $red等ではなく$brand-color,$default-color等で定義する */
 
 /* ルートのfont-sizeを定義 */
+
+.swiper-container {
+	height: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+.swiper-slide {
+	background-position: center;
+	background-size: cover;
+}
+
+.gallery-top {
+	height: 80%;
+	width: 100%;
+}
+
+.gallery-thumbs {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	height: 20%;
+	padding: 10px 0;
+}
+
+.gallery-thumbs .swiper-slide {
+	height: 100%;
+	opacity: .4;
+}
+
+.gallery-thumbs .swiper-slide-thumb-active {
+	opacity: 1;
+}
+
+.swiper-slides {
+	height: 800px;
+	margin: auto;
+	position: relative;
+	width: 80%;
+}
 
 .u-d-fx {
 	display: -webkit-box;
