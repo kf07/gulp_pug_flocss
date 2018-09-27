@@ -1,7 +1,7 @@
 @import "../variable/_breakpoint";
 
 @mixin _mq-min($breakpoint: md) {
-  @media #{map-get($breakpoints, $breakpoint)} {
+  @media #{map-get($breakpointsMin, $breakpoint)} {
     @content;
   }
 }

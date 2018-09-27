@@ -22,6 +22,12 @@ html {
 
 .tabMenu {
   display: flex;
+  @include _mq-max() {
+    display: block;
+  }
+  @include _mq-min(){
+    display: none;
+  }
 }
 
 .tabMenu__item {
