@@ -13,7 +13,7 @@ const htmlbeautify = require('gulp-html-beautify');
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sassGlob = require("gulp-sass-glob");
-const babel = require("gulp-babel");
+var babel = require('gulp-babel');
 
 // webpackの設定ファイルの読み込み
 const webpackConfig = require('./webpack.config');
@@ -80,11 +80,11 @@ gulp.task('sass', function () {
 
 
 //babel
-gulp.task('babel',function(){
-    return gulp.src('src/js/**/*.js')
+gulp.task('babel', function () { //このタスクにbabelって名前をつける
+    gulp.src('src/es6/script.js') //変換したいES2015で記述したファイルを指定
         .pipe(babel())
-        .pipe(gulp.dest('./dist/assets/js'))
-})
+        .pipe(gulp.dest('./dist/assets/js')); //gulp.dest()でファイルの書き出し 今回はjsフォルダに
+});
 
 
 //browser-sync
@@ -105,6 +105,7 @@ gulp.task('bs-reload', ()=> {
 gulp.task('default',['browser-sync'], ()=> {
     gulp.watch('src/pug/**/*.pug',['pug']);
     gulp.watch('src/**/*.scss',['sass']);
+    gulp.watch('src/**/*.js',['babel']);
     gulp.watch('dist/**/*.html',['html']);
     gulp.watch('dist/**/*.html',['bs-reload']);
     gulp.watch('dist/**/*.js',['bs-reload']);
