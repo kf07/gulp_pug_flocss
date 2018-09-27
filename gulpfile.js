@@ -13,6 +13,7 @@ const htmlbeautify = require('gulp-html-beautify');
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sassGlob = require("gulp-sass-glob");
+const babel = require("gulp-babel");
 
 // webpackの設定ファイルの読み込み
 const webpackConfig = require('./webpack.config');
@@ -76,6 +77,15 @@ gulp.task('sass', function () {
         // cssフォルダー以下に保存
         .pipe(gulp.dest('./dist/assets/css'))
 });
+
+
+//babel
+gulp.task('babel',function(){
+    return gulp.src('src/js/**/*js')
+        .pipe(babel())
+        .pipe(gulp.dest('./dist/js'))
+})
+
 
 //browser-sync
 gulp.task('browser-sync',()=> {
