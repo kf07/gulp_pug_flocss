@@ -13,7 +13,11 @@ const htmlbeautify = require('gulp-html-beautify');
 const postcss = require("gulp-postcss");
 const autoprefixer = require("autoprefixer");
 const sassGlob = require("gulp-sass-glob");
-var babel = require('gulp-babel');
+const babel = require('gulp-babel');
+const htmlmin = require('gulp-htmlmin');
+const uglify = require('gulp-uglify')
+const cleanCSS = require('gulp-clean-css');
+const rename = require("gulp-rename");
 
 // webpackの設定ファイルの読み込み
 const webpackConfig = require('./webpack.config');
@@ -94,6 +98,27 @@ gulp.task('browser-sync',()=> {
             baseDir: "./dist"
         }
     });
+});
+
+//css-min
+gulp.task('minify-css', () => {
+    return gulp.src('dist/assets/css/**/*.css')
+        .pipe(cleanCSS({compatibility: 'ie8'}))
+        .pipe(gulp.dest('dist/assets/css/'));
+});
+
+//js-min
+gulp.task("minify-js", ()=> {
+    return gulp.src("dist/assets/js/**/*.js")
+        .pipe(uglify())
+        .pipe(gulp.dest("dist/assets/js/"));
+});
+
+//html-min
+gulp.task('minify', () => {
+    return gulp.src('dist/**/*.html')
+        .pipe(htmlmin({ collapseWhitespace: true }))
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('bs-reload', ()=> {
