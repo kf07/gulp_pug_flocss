@@ -7,11 +7,6 @@ body {
   font-family: "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-}
 
 html {
   font-size: map-get($_font-size, sm);
@@ -28,21 +23,4 @@ html {
   @include _mq-min(){
     display: none;
   }
-}
-
-.tabMenu__item {
-  width: 40px;
-  border-right: 1px solid #000;
-  background-color: #f00;
-  padding: 15px 0;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-}
-
-.tabContents {
-  width: 400px;
-  height: 300px;
-  border: 1px solid #000000;
-  padding: 10px;
 }
