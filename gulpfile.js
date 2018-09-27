@@ -81,9 +81,9 @@ gulp.task('sass', function () {
 
 //babel
 gulp.task('babel',function(){
-    return gulp.src('src/js/**/*js')
+    return gulp.src('src/js/**/*.js')
         .pipe(babel())
-        .pipe(gulp.dest('./dist/js'))
+        .pipe(gulp.dest('./dist/assets/js'))
 })
 
 
