@@ -82,7 +82,7 @@ gulp.task('sass', () => {
 
 //babel
 gulp.task('babel', () => {
-    gulp.src('src/es6/script.js')
+    return gulp.src('src/es6/script.js')
         .pipe(babel())
         .pipe(gulp.dest('./dist/assets/js'));
 });
@@ -112,12 +112,11 @@ gulp.task("minify-js", () => {
 });
 
 //html-min
-gulp.task('minify', () => {
+gulp.task('minify-html', () => {
     return gulp.src('dist/**/*.html')
         .pipe(htmlmin({collapseWhitespace: true}))
         .pipe(gulp.dest('dist'));
 });
-
 
 gulp.task('bs-reload', () => {
     browserSync.reload();
