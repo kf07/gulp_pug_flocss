@@ -55,40 +55,40 @@ pug,sass,jsファイルが変更されたら
 │           ├ css/  
 │           └ img/   
 ├ src/  
-│   └ pug   
-│       ├ include/  
-│       ├ _config.pug   
-│       ├ _layout.pug  
-│       └ index.pug  
-│   └ sass 
-│       ├ foundation/  
-│       │    ├ function/  
-│       │    │    └ _rem.scss
-
-│       │    ├ mixin  
-│       │    │    ├ _mq-max.scss
-│       │    │    └ _mq-min.scss
-│       │    ├ variable 
-│       │    │    ├ _breakpoint.scss
-│       │    │    ├ _color.scss
-│       │    │    ├ _global.scss
-│       │    │    └ _path.scss
-│       │    ├ _base.scc  
-│       │    ├ _normalize.scss   
-│       │    └ _reset.scss
-│       ├ layout/  
-│       ├ object/  
-│       │    ├ component/
-│       │    ├ project/
-│       │    └ utility/
-│       └ common.scss  
-│ 
-│ 
-│ 
+│   ├ pug   
+│   │   ├ include/  
+│   │   ├ _config.pug   
+│   │   ├ _layout.pug  
+│   │   └ index.pug  
+│   ├ sass 
+│   │   ├ foundation/  
+│   │   │    ├ function/  
+│   │   │    │    └ _rem.scss
+│   │   │    ├ mixin  
+│   │   │    │    ├ _mq-max.scss
+│   │   │    │    └ _mq-min.scss
+│   │   │    ├ variable 
+│   │   │    │    ├ _breakpoint.scss
+│   │   │    │    ├ _color.scss
+│   │   │    │    ├ _global.scss
+│   │   │    │    └ _path.scss
+│   │   │    ├ _base.scc  
+│   │   │    ├ _normalize.scss   
+│   │   │    └ _reset.scss
+│   │   ├ layout/  
+│   │   ├ object/  
+│   │   │    ├ component/
+│   │   │    ├ project/
+│   │   │    └ utility/
+│   │   └ common.scss  
 │   └ es6  
-│  
-├── README.md  
-└── package.json  
+│       └ scripts.js
+├ gulpfile.js
+├ .csscomb.json
+├ .babelrc
+├ README.md
+├ package.json
+└ package-lock.json
 ```
 
 
