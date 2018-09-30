@@ -83,7 +83,7 @@ gulp.task('sass', () => {
 
 //babel
 gulp.task('babel', () => {
-    return gulp.src('src/es6/script.js')
+    return gulp.src('src/es6/**/*.js')
         .pipe(babel())
         .pipe(gulp.dest('./dist/assets/js'));
 });
@@ -131,6 +131,6 @@ gulp.task('default', ['browser-sync'], () => {
     gulp.watch('src/**/*.js', ['babel']);
     gulp.watch('dist/**/*.html', ['html']);
     gulp.watch('dist/**/*.html', ['bs-reload']);
-    gulp.watch('dist/**/*.js', ['bs-reload']);
+    gulp.watch('src/**/*.js', ['bs-reload']);
     gulp.watch('dist/**/*.css', ['bs-reload']);
 });
