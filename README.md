@@ -308,7 +308,7 @@ foundation/mixin/_mq-min.scss
 }
 ```
 
-#### common.scssで各scssをimport
+### common.scssで各scssをimport
 拡張子は省略可
 foundation以外は**でそれぞれすべてimport
 ```scss
