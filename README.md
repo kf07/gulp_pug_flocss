@@ -37,10 +37,10 @@ htmlをminify
 ローカル環境を起動  
 http://localhost:3000/
 
-## bs-reload
+### bs-reload
 ローカル環境をリロード
 
-## default
+### default
 ローカル環境を起動  
 
 pug,sass,jsファイルが変更されたら  
@@ -48,6 +48,8 @@ pug,sass,jsファイルが変更されたら
 自動リロードする
 
 ## ディレクトリ構成
+srcのpug,sass,jsをコンパイル、imgを圧縮して
+それぞれdist配下に出力
 ```
 ├ dist/ 
 │   ├ index.html  
