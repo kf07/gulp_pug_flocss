@@ -96,6 +96,7 @@ pug,sass,jsファイルが変更されたら
 ### config
 パス、meta等を指定  
 /include/_config.pug  
+jquery,vueはtrueで_script.pugで読み込み
 ```pug
 - const image_path = '/assets/img/'
 - const css_path = '/assets/css/'
