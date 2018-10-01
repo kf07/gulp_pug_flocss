@@ -282,3 +282,16 @@ foundation/mixin/_mq-min.scss
   }
 }
 ```
+↓
+```css
+.class {
+	width: 50%;
+}
+
+@media screen and (max-width: 767px) {
+
+	.class {
+		width: 100%;
+	}
+}
+```
