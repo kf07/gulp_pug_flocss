@@ -16,13 +16,3 @@ html {
     font-size: map-get($_font-size, md);
   }
 }
-
-.tabMenu {
-  display: flex;
-  @include _mq-max() {
-    display: block;
-  }
-  @include _mq-min(){
-    display: none;
-  }
-}

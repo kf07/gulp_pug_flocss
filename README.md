@@ -100,7 +100,7 @@ pug,sass,jsファイルが変更されたら
 - const image_path = '/assets/img/'
 - const css_path = '/assets/css/'
 - const js_path = '/assets/js/'
-- const domain = 'https://example.com/'
+- const domain = 'https://example.com/' //ドメイン
 - const jquery = false
 - const vue = true
 -
@@ -108,9 +108,10 @@ pug,sass,jsファイルが変更されたら
         top : {
         url : 'index.html',
         name : 'トップページ',
-        title : 'トップページ',
-        description : 'トップページです',
-        keywords : 'トップページ',
+        //title,og.title
+        title : 'トップページ', 
+        description : 'トップページです',　
+        keywords : 'トップページ', 
         image : 'assets/img/ogp.jpg'
         }
     }
@@ -138,3 +139,126 @@ script(src=js_path+"scripts.js")
 - /include/_script.pug
 
 
+### layout
+/_layout.pug  
+それぞれをincludeしてページ全体のテンプレートを定義  
+block contentsのところにページごとのコンテンツが入る
+```pug
+doctype html
+block vars
+html(lang="ja")
+    head
+        include ./include/_head.pug
+
+    body(class=key)
+        .l_contents
+            include ./include/_header.pug
+            include ./include/_nav
+            main.main
+                block contents
+            include ./include/_footer.pug
+        include ./include/_script
+```
+
+/_index.pug
+```pug
+//layoutを使用
+extends _layout.pug
+
+block vars
+    include ./_config.pug
+    //使用するconfig指定する
+    - var key = "top"
+    - var page = pages[key]
+
+block contents
+    #app
+    //ここにコンテンツ書く
+```
+
+## Scss
+CSS設計はFLOCSS  
+https://github.com/hiloki/flocss
+#### foundation  
+reset.normalize等のリセット系のCSSと全体で使用するbase.scss
+#### layout
+ヘッダーやフッターなどのレイアウト系のscss
+#### object
+1.component  
+2.project  
+3.utility
+
+
+### variable
+ブレイクポイントを定義  
+/foundation/variable/_breakpoint.scss  
+
+colorを定義  
+/foundation/variable/_color.scss 
+
+htmlのfont-sizeを定義  
+/foundation/variable/_globa.scss 
+
+画像のパスを定義  
+/foundation/variable/_path.scss 
+
+### function
+/foundation/function/_rem.scss  
+/foundation/variable/_global.scssで指定しているルートのfont-sizeからrem変換
+```scss
+// /foundation/variable/_global.scss  
+/* ルートのfont-sizeを定義 */
+$_font-size: (
+        'sm': 15px,
+        'md': 16px,
+) !default;
+```
+
+```scss
+// /foundation/function/_rem.scss  
+@function _rem($px, $key: 'md') {
+  $value: map-get($_font-size, $key);
+  @return ($px / $value) * 1rem;
+}
+```
+
+```scss
+.class {
+    font-size: _rem(24px);
+}
+```
+↓
+```css
+.class {
+    font-size: 1.5rem;
+}
+```
+
+### mixin
+メディアクエリ  
+
+foundation/mixin/_mq-max.scss
+```scss
+@mixin _mq-max($breakpoint: md) {
+  @media #{map-get($breakpointsMax, $breakpoint)} {
+    @content;
+  }
+}
+```
+foundation/mixin/_mq-min.scss
+```scss
+@mixin _mq-min($breakpoint: md) {
+  @media #{map-get($breakpointsMin, $breakpoint)} {
+    @content;
+  }
+}
+```
+
+```scss
+.class {
+  width: 50%;
+  @include _mq-max(){
+    width: 100%;
+  }
+}
+```
