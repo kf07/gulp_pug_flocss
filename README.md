@@ -198,7 +198,7 @@ colorを定義
 /foundation/variable/_color.scss 
 
 htmlのfont-sizeを定義  
-/foundation/variable/_globa.scss 
+/foundation/variable/_global.scss 
 
 画像のパスを定義  
 /foundation/variable/_path.scss 
@@ -237,6 +237,25 @@ $_font-size: (
 
 ### mixin
 メディアクエリ  
+/foundation/variable/_breakpoint.scssで指定したbreakpointを使用  
+引数なしだとmd  
+
+/foundation/variable/_breakpoint.scss
+```scss
+$breakpointsMin: (
+        'sm': 'screen and (min-width: 400px)',
+        'md': 'screen and (min-width: 768px)',
+        'lg': 'screen and (min-width: 1000px)',
+        'xl': 'screen and (min-width: 1200px)',
+) !default;
+
+$breakpointsMax: (
+        'sm': 'screen and (max-width: 360px)',
+        'md': 'screen and (max-width: 767px)',
+        'lg': 'screen and (max-width: 991px)',
+        'xl': 'screen and (max-width: 1200px)',
+) !default;
+```  
 
 foundation/mixin/_mq-max.scss
 ```scss
