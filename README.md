@@ -34,7 +34,8 @@ jsをminify
 htmlをminify
 
 ### browser-sync
-ローカル環境を起動
+ローカル環境を起動  
+http://localhost:3000/
 
 ## bs-reload
 ローカル環境をリロード
@@ -91,5 +92,49 @@ pug,sass,jsファイルが変更されたら
 └ package-lock.json
 ```
 
+## pug
+### config
+パス、meta等を指定  
+/include/_config.pug  
+```pug
+- const image_path = '/assets/img/'
+- const css_path = '/assets/css/'
+- const js_path = '/assets/js/'
+- const domain = 'https://example.com/'
+- const jquery = false
+- const vue = true
+-
+    const pages = {
+        top : {
+        url : 'index.html',
+        name : 'トップページ',
+        title : 'トップページ',
+        description : 'トップページです',
+        keywords : 'トップページ',
+        image : 'assets/img/ogp.jpg'
+        }
+    }
+```
 
- 
+パスの指定
+```pug
+img(src=image_path +"icon.png")
+link(rel="stylesheet", href=css_path+"common.css")
+script(src=js_path+"scripts.js")
+```
+↓
+```html
+<img src="/assets/img/icon.png">
+<link rel="stylesheet" href="/assets/css/common.css">
+<script src="/assets/js/scripts.js"></script>
+```
+
+### include
+各includeファイル
+- /include/_head.pug
+- /include/_header.pug
+- /include/_nav.pug
+- /include/_footer.pug
+- /include/_script.pug
+
+
