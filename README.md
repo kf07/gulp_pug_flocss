@@ -201,7 +201,19 @@ htmlのfont-sizeを定義
 /foundation/variable/_global.scss 
 
 画像のパスを定義  
-/foundation/variable/_path.scss 
+/foundation/variable/_path.scss
+
+```scss
+.class {
+  background-image: url(#{$path}icon.png);
+}
+```
+↓
+```css
+.class {
+	background-image: url(/assets/img/icon.png);
+}
+```
 
 ### function
 /foundation/function/_rem.scss  
