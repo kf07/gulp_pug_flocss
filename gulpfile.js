@@ -18,6 +18,8 @@ const htmlmin = require('gulp-htmlmin');
 const uglify = require('gulp-uglify')
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
+const stylelint = require('stylelint')
+const postcssReporter = require('postcss-reporter')
 
 
 // beautifiy_option
@@ -75,7 +77,9 @@ gulp.task('sass', () => {
                 browsers: ["last 2 versions", "ie >= 11", "Android >= 4"],
                 cascade: false,
                 grid: true
-            })
+            }),
+            stylelint(), // これを追加
+            postcssReporter({clearMessages: true})
         ]))
         .pipe(gulp.dest('./dist/assets/css'))
 });
