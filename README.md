@@ -1,4 +1,5 @@
 # gulp-template
+node v8.11.1
 
 ## インストール
 ```
