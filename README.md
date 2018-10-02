@@ -99,7 +99,7 @@ srcのpug,sass,jsをコンパイル、imgを圧縮して
 ### config
 パス、meta等を指定  
 /include/_config.pug  
-jquery,vueはtrueで_script.pugで読み込み
+jquery,vueはtrueで_script.pugでCDN読み込み
 ```pug
 - const image_path = '/assets/img/'
 - const css_path = '/assets/css/'
@@ -182,7 +182,8 @@ block contents
 
 ## Scss
 CSS設計はFLOCSS  
-https://github.com/hiloki/flocss
+https://github.com/hiloki/flocss  
+https://hiloki.github.io/s/flocss-layout/
 #### foundation  
 reset.normalize等のリセット系のCSSと全体で使用するbase.scss
 #### layout
