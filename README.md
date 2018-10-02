@@ -31,7 +31,8 @@ cssをminify
 jsをminify
 
 ### minify-html
-htmlをminify
+htmlをminify  
+※defaultが動いてるとhtmlが変更されたら整形されるためdefault止めてから実行
 
 ### browser-sync
 ローカル環境を起動  
