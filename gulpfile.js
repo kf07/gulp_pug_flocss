@@ -138,10 +138,9 @@ gulp.task('bs-reload', () => {
 // default
 gulp.task('default', ['browser-sync'], () => {
     gulp.watch('src/pug/**/*.pug', ['pug']);
-    gulp.watch('src/**/*.scss', ['sass']);
-    gulp.watch('src/**/*.js', ['babel']);
+    gulp.watch('src/**/*.scss', ['prettier','sass']);
+    gulp.watch('src/**/*.js', ['prettier','babel','bs-reload']);
     gulp.watch('dist/**/*.html', ['html']);
     gulp.watch('dist/**/*.html', ['bs-reload']);
-    gulp.watch('src/**/*.js', ['bs-reload']);
     gulp.watch('dist/**/*.css', ['bs-reload']);
 });
