@@ -15,12 +15,13 @@ const autoprefixer = require("autoprefixer");
 const sassGlob = require("gulp-sass-glob");
 const babel = require('gulp-babel');
 const htmlmin = require('gulp-htmlmin');
-const uglify = require('gulp-uglify')
+const uglify = require('gulp-uglify');
 const cleanCSS = require('gulp-clean-css');
 const rename = require("gulp-rename");
-const stylelint = require('stylelint')
-const postcssReporter = require('postcss-reporter')
-
+const stylelint = require('stylelint');
+const postcssReporter = require('postcss-reporter');
+const prettier = require('gulp-prettier');
+const prettierPlugin = require('gulp-prettier-plugin');
 
 // beautifiy_option
 const beautify_options = {
@@ -82,6 +83,12 @@ gulp.task('sass', () => {
             postcssReporter({clearMessages: true})
         ]))
         .pipe(gulp.dest('./dist/assets/css'))
+});
+
+gulp.task('prettier', () => {
+    return gulp.src(['src/sass/**/*.scss', 'src/es6/*.js'])
+        .pipe(prettier())
+        .pipe(gulp.dest(file => file.base))
 });
 
 
