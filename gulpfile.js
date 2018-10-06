@@ -69,7 +69,7 @@ gulp.task('sass', () => {
       outputStyle: 'expanded'
     }))
     .pipe(cmq())
-    .pipe(csscomb())
+    // .pipe(csscomb())
     .pipe(postcss([
       autoprefixer({
         // IEは11以上、Androidは4.4以上
@@ -78,8 +78,8 @@ gulp.task('sass', () => {
         cascade: false,
         grid: true
       }),
-      // stylelint(),
-      // postcssReporter({clearMessages: true})
+      stylelint(),
+      postcssReporter({clearMessages: true})
     ]))
     .pipe(gulp.dest('./dist/assets/css'))
 });
