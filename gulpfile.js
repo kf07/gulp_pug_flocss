@@ -79,16 +79,24 @@ gulp.task('sass', () => {
                 cascade: false,
                 grid: true
             }),
-            stylelint(), // これを追加
-            postcssReporter({clearMessages: true})
+            // stylelint(),
+            // postcssReporter({clearMessages: true})
         ]))
         .pipe(gulp.dest('./dist/assets/css'))
 });
-
 gulp.task('prettier', () => {
     return gulp.src(['src/sass/**/*.scss', 'src/es6/*.js'])
-        .pipe(prettier())
-        .pipe(gulp.dest(file => file.base))
+      .pipe(
+        prettierPlugin(
+          {
+            singleQuote: true,
+          },
+          {
+            filter: true
+          }
+        )
+      )
+      .pipe(gulp.dest(file => file.base))
 });
 
 
