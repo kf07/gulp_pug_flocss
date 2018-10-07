@@ -1,9 +1,18 @@
 {
   "syntax": "scss",
   "plugins": [
+    "stylelint-order",
     "stylelint-scss"
   ],
-  "extends": "stylelint-config-recommended-scss",
+  "extends": [
+    "stylelint-config-recess-order",
+    "stylelint-config-recommended-scss"
+  ],
   "rules": {
+    "order/order": [
+      "custom-properties",
+      "declarations"
+    ],
+    "order/properties-alphabetical-order": true
   }
 }
