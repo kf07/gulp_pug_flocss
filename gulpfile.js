@@ -21,6 +21,17 @@ const stylelint = require('stylelint');
 const postcssReporter = require('postcss-reporter');
 const prettier = require('gulp-prettier');
 const prettierPlugin = require('gulp-prettier-plugin');
+const gulpStylelint = require('gulp-stylelint');
+
+gulp.task('lint-css', ()=> {
+  return gulp.src('src/**/*.scss')
+    .pipe(gulpStylelint({
+      fix:true,
+      reporters: [
+        {formatter: 'string', console: true}
+      ]
+    }));
+});
 
 // beautifiy_option
 const beautify_options = {
@@ -145,7 +156,7 @@ gulp.task('bs-reload', () => {
 // default
 gulp.task('default', ['browser-sync'], () => {
   gulp.watch('src/pug/**/*.pug', ['pug']);
-  gulp.watch('src/**/*.scss', ['prettier', 'sass']);
+  gulp.watch('src/**/*.scss', ['lint-css','prettier', 'sass']);
   gulp.watch('src/**/*.js', ['prettier', 'babel', 'bs-reload']);
   gulp.watch('dist/**/*.html', ['html']);
   gulp.watch('dist/**/*.html', ['bs-reload']);
