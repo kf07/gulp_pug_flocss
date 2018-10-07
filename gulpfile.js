@@ -89,7 +89,7 @@ gulp.task('sass', () => {
         cascade: false,
         grid: true
       }),
-      stylelint({ fix: true }),
+      // stylelint({ fix: true }),
       postcssReporter({clearMessages: true})
     ]))
     .pipe(gulp.dest('./dist/assets/css'))
