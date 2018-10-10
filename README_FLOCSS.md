@@ -1,7 +1,33 @@
 ## FLOCSSスタイルガイド
 Foundation、Layout、Object/Componet、Object/Project、Object/Utility  
 の5つのレイヤーで設計していくCSS設計思想  
-ID属性は基本的には使用しない
+| レイヤー名       |                                        | プレフィックス |
+|------------------|----------------------------------------|----------------|
+| Foundation       | normalize,reset,base.scssなどを定義    |                |
+| Layout           | ヘッダー、フッターなどのレイアウト要素 | l-**           |
+| Object/Component | 再利用できる小さな単位のモジュール     | c-**           |
+| Object/Project   | プロジェクト固有のパターン             | p-**           |
+| Object/Utility   | margin,crearfix等の便利なクラス        | u-**           |
+
+ID属性は基本的には使用しない  
+同レイヤー間でのカスケーティング、他のコンポーネントを親とするセレクタを用いたカスケーティングは禁止  
+例外として、ProjectレイヤーがComponentレイヤーを変更することは許容する
+```scss
+//NG
+.l-Header .p-Header {
+
+}
+
+.p-Article .p-Comments {
+  
+}
+
+
+//OK
+.p-Article .c-Article__image {
+
+}
+```
 
 
 
@@ -24,29 +50,26 @@ l-header,l-footer,l-main等
 
 
 ### component
-プレフィックス c-*
 >再利用できるパターンとして、小さな単位のモジュールを定義します。  
 >一般的によく使われるパターンであり、例えばBootstrapのComponentカテゴリなどに見られるbuttonなどが該当します。  
 >出来る限り、最低限の機能を持ったものとして定義されるべきであり、それ自体が固有の幅や色などの特色を持つことは避けるのが望ましいです。  
-> https://github.com/hiloki/flocss より抜粋  
 
 
 ### project
-プレフィックス p-*
 >プロジェクト固有のパターンであり、いくつかのComponentと、それに該当しない要素によって構成されるものを定義します。  
 > 例えば、記事一覧や、ユーザープロフィール、画像ギャラリーなどコンテンツを構成する要素などが該当します。  
-> https://github.com/hiloki/flocss より抜粋
 
 
 ### utility
-プレフィックス u-*
 >ComponentとProjectレイヤーのObjectのモディファイアで解決することが難しい・適切では無い、わずかなスタイルの調整のための便利クラスなどを定義します。  
 >Utilityは、Component、ProjectレイヤーのObjectを無尽蔵に増やしてしまうことを防いだり、またこれらのObject自体が持つべきではないmarginの代わりに.mbs { margin-bottom: 10px; }のようなUtility Objectを用いて、隣接するモジュールとの間隔をつくるといった役割を担います。  
 >またclearfixテクニックのためのルールセットが定義されているヘルパークラスも、このレイヤーに含めます。  
-> https://github.com/hiloki/flocss より抜粋
 
-### ProjectとComponentの違いについて
+https://github.com/hiloki/flocss より抜粋  
 
+### ※ProjectとComponentの違いについて
+1.基本的にはほとんどのモジュールはProjectレイヤーとして考える  
+2.その中で数度繰り返されたパターンとして抽象化できるものがあればComponentレイヤーにする
 
 ## 命名規則
 ### MindBEMding  
