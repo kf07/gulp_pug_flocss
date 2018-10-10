@@ -1,13 +1,14 @@
 ## FLOCSSスタイルガイド
 Foundation、Layout、Object/Componet、Object/Project、Object/Utility  
 の5つのレイヤーで設計していくCSS設計思想  
-| レイヤー名       |                                        | プレフィックス |
-|------------------|----------------------------------------|----------------|
-| Foundation       | normalize,reset,base.scssなどを定義    |                |
+
+| レイヤー名       |                                        | プレフィックス |  
+|------------------|----------------------------------------|----------------|  
+| Foundation       | normalize,reset,base.scssなどを定義    |                |  
 | Layout           | ヘッダー、フッターなどのレイアウト要素 | l-**           |
-| Object/Component | 再利用できる小さな単位のモジュール     | c-**           |
-| Object/Project   | プロジェクト固有のパターン             | p-**           |
-| Object/Utility   | margin,crearfix等の便利なクラス        | u-**           |
+| Object/Component | 再利用できる小さな単位のモジュール     | c-**           |  
+| Object/Project   | プロジェクト固有のパターン             | p-**           |  
+| Object/Utility   | margin,crearfix等の便利なクラス        | u-**           |  
 
 ID属性は基本的には使用しない  
 同レイヤー間でのカスケーティング、他のコンポーネントを親とするセレクタを用いたカスケーティングは禁止  
