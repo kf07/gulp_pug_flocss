@@ -1,4 +1,9 @@
 ## FLOCSSスタイルガイド
+Foundation、Layout、Object/Componet、Object/Project、Object/Utility  
+の5つのレイヤーで設計していくCSS設計思想  
+ID属性は基本的には使用しない
+
+
 
 - Foundation
 - Layout
@@ -23,7 +28,8 @@ l-header,l-footer,l-main等
 >再利用できるパターンとして、小さな単位のモジュールを定義します。  
 >一般的によく使われるパターンであり、例えばBootstrapのComponentカテゴリなどに見られるbuttonなどが該当します。  
 >出来る限り、最低限の機能を持ったものとして定義されるべきであり、それ自体が固有の幅や色などの特色を持つことは避けるのが望ましいです。  
-> https://github.com/hiloki/flocss より抜粋
+> https://github.com/hiloki/flocss より抜粋  
+
 
 ### project
 プレフィックス p-*
@@ -33,15 +39,19 @@ l-header,l-footer,l-main等
 
 
 ### utility
+プレフィックス u-*
 >ComponentとProjectレイヤーのObjectのモディファイアで解決することが難しい・適切では無い、わずかなスタイルの調整のための便利クラスなどを定義します。  
->Utilityは、Component、ProjectレイヤーのObjectを無尽蔵に増やしてしまうことを防いだり、またこれらのObject自体が持つべきではないmarginの代わりに.mbs { margin-bottom: 10px; }のようなUtility Objectを用いて、隣接するモジュールとの間隔をつくるといった役割を担います。
+>Utilityは、Component、ProjectレイヤーのObjectを無尽蔵に増やしてしまうことを防いだり、またこれらのObject自体が持つべきではないmarginの代わりに.mbs { margin-bottom: 10px; }のようなUtility Objectを用いて、隣接するモジュールとの間隔をつくるといった役割を担います。  
 >またclearfixテクニックのためのルールセットが定義されているヘルパークラスも、このレイヤーに含めます。  
 > https://github.com/hiloki/flocss より抜粋
-##　命名規則
 
-MindBEMding
-Block,Element,Modifier
-Block名にはアッパーキャメルケース
+### ProjectとComponentの違いについて
+
+
+## 命名規則
+### MindBEMding  
+Block,Element,Modifier  
+Block名にはアッパーキャメルケース  
 Blockのあとにアンダーバー２つでelement
 ```html
 <div class="p-BlockName">
@@ -59,11 +69,19 @@ elementの入れ子は避ける
     </div>
   </div>
 </div>
+
+/* OK */
+<div class="p-BlockName">
+  <div class="p-BlockName__element">
+    <div class="p-BlockName__element2">
+    </div>
+  </div>
+</div>
 ```
 
 Modifierはハイフン1つから始まるクラス名にする  
 ※ハイフン2つから始まるクラスはCSSの仕様で許容されていないため注意  
-元のクラスとの組み合わせでスタイルを定義する
+別のクラスとの組み合わせでスタイルを定義する
 ```html
 <div class="article"></div>
 <div class="article -modifierA"></div>
@@ -88,7 +106,7 @@ Modifierはハイフン1つから始まるクラス名にする
 
 ### 状態（ステート）
 主にjsで付与されるクラス
-SMACSSのようにis-**で定義する
+SMACSSのようにis-**で定義する  
 is-**単体にはスタイルはつけずに、以下のように別のクラスとの組み合わせで定義する
 
 ```scss
@@ -102,3 +120,4 @@ is-**単体にはスタイルはつけずに、以下のように別のクラス
   display: block;
 }
 ```
+
