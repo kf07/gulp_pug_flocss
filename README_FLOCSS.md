@@ -12,7 +12,6 @@ Foundation、Layout、Object/Componet、Object/Project、Object/Utility
 
 ID属性は基本的には使用しない  
 同レイヤー間でのカスケーティング、他のコンポーネントを親とするセレクタを用いたカスケーティングは禁止  
-例外として、ProjectレイヤーがComponentレイヤーを変更することは許容する
 ```scss
 //NG
 .l-Header .p-Header {
@@ -21,12 +20,6 @@ ID属性は基本的には使用しない
 
 .p-Article .p-Comments {
   
-}
-
-
-//OK
-.p-Article .c-Article__image {
-
 }
 ```
 
