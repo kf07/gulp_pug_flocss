@@ -1,0 +1,23 @@
+.wrap {
+  margin: 20px;
+  overflow: hidden;
+}
+
+.swiper-container {
+  width: 720px;
+  margin: auto;
+  overflow: visible;
+  position: relative;
+}
+
+//.swiper-slide {
+//  width: 300px;
+//}
+
+.swiper-slide-active {
+  opacity: 0.3;
+}
+
+.swiper-slide-duplicate-active {
+  opacity: 0.3;
+}
