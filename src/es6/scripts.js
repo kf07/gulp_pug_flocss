@@ -65,45 +65,162 @@ function asyncProcess(value) {
 //thenオブジェクトでresolve、rejectの結果を受け取る
 //.then(success,failure)
 //success,failureはそれぞれresolve/reject関数で指定された引数を受け取る
-asyncProcess('トクジロウ') //初回のasyncProcess関数を実行
-  .then(
-    //成功したときに実行される処理
-    response => {
-      console.log(response);
-      return asyncProcess('ニンサブロウ'); //2番目のasyncProcess関数を呼び出し
-    }
-  )
-  .then(
-    response => {
-      console.log(response);
-    },
-    //失敗したときに実行される処理
-    error => {
-      console.log(`エラー:${error}`);
-    }
-  );
-Promise.all([
-  asyncProcess('トクジロウ'),
-  asyncProcess('ニンザブロウ'),
-  asyncProcess('リンリン')
-]).then(
-  response => {
-    console.log(response);
-  },
-  error => {
-    console.log(`エラー: ${error}`);
-  }
-);
+// asyncProcess('トクジロウ') //初回のasyncProcess関数を実行
+//   .then(
+//     //成功したときに実行される処理
+//     response => {
+//       console.log(response);
+//       return asyncProcess('ニンサブロウ'); //2番目のasyncProcess関数を呼び出し
+//     }
+//   )
+//   .then(
+//     response => {
+//       console.log(response);
+//     },
+//     //失敗したときに実行される処理
+//     error => {
+//       console.log(`エラー:${error}`);
+//     }
+//   );
+// Promise.all([
+//   asyncProcess('トクジロウ'),
+//   asyncProcess('ニンザブロウ'),
+//   asyncProcess('リンリン')
+// ]).then(
+//   response => {
+//     console.log(response);
+//   },
+//   error => {
+//     console.log(`エラー: ${error}`);
+//   }
+// );
+//
+// Promise.race([
+//   asyncProcess(''),
+//   asyncProcess('ニンザブロウ'),
+//   asyncProcess('リンリン')
+// ]).then(
+//   response => {
+//     console.log(response);
+//   },
+//   error => {
+//     console.log(`エラー: ${error}`);
+//   }
+// );
+// const Hoge = () => {
+//   let msg = '#1';
+//
+//   setTimeout(() => {
+//     msg = `${msg}#2`;
+//   }, 10);
+//
+//   msg = `${msg}#3`;
+//
+//   console.log(msg);
+// };
+//
+// Hoge();
 
-Promise.race([
-  asyncProcess(''),
-  asyncProcess('ニンザブロウ'),
-  asyncProcess('リンリン')
-]).then(
-  response => {
-    console.log(response);
-  },
-  error => {
-    console.log(`エラー: ${error}`);
-  }
-);
+// const func2 = new Promise((resolve, reject) => {
+//   let msg = '#1';
+//   resolve(msg);
+// })
+//   .then(msg => {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+//         msg = `${msg}#2`;
+//         resolve(msg);
+//       }, 10);
+//     });
+//   })
+//   .then(msg => {
+//     msg = `${msg}#3`;
+//     console.log(msg);
+//   });
+
+// const promise1 = value => {
+//   return new Promise((resolve, reject) => {
+//     if (value) {
+//       //引数の値があるならresolveで引数を返す
+//       resolve(value);
+//     } else {
+//       //引数が空ならrejectで'エラー'を返す
+//       reject('エラー');
+//     }
+//   });
+// };
+//
+// const promise2 = value => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (value) {
+//         //引数の値があるならresolveで引数を返す
+//         resolve(value);
+//       } else {
+//         //引数が空ならrejectで'エラー'を返す
+//         reject('エラー');
+//       }
+//     }, 200);
+//   });
+// };
+//
+// promise1()
+//   .then(result => {
+//     //promiseの結果がresolveの場合
+//     console.log(result);
+//     return promise1('#2');
+//   })
+//   .then(
+//     result => {
+//       console.log(result);
+//     },
+//
+//     error => {
+//       //promiseの結果がrejectの場合
+//       console.log(error);
+//     }
+//   );
+//
+// Promise.all([promise1('#1'), promise1('#2'), promise1('#3')]).then(
+//   result => {
+//     console.log(result);
+//   },
+//   error => {
+//     console.log(error);
+//   }
+// );
+//
+// Promise.race([promise2('#1'), promise1('#2'), promise1('#3')]).then(
+//   result => {
+//     console.log(result);
+//   },
+//   error => {
+//     console.log(error);
+//   }
+// );
+
+const func1 = new Promise((resolve, reject) => {
+  let msg = 1;
+  resolve(msg);
+});
+
+func1
+  .then(msg => {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        msg = `${msg}#2`;
+        resolve(msg);
+      }, 300);
+    });
+  })
+  .then(msg => {
+    return new Promise((resolve, reject) => {
+      msg = `${msg}#3`;
+      resolve(msg);
+    });
+  })
+  .then(msg => {
+    return new Promise((resolve, reject) => {
+      console.log(msg);
+    });
+  });

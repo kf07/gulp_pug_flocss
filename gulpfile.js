@@ -22,6 +22,7 @@ const postcssReporter = require('postcss-reporter');
 const prettier = require('gulp-prettier');
 const prettierPlugin = require('gulp-prettier-plugin');
 
+
 // beautifiy_option
 const beautify_options = {
   'indent_with_tabs': true
@@ -85,6 +86,12 @@ gulp.task('sass', () => {
 });
 gulp.task('prettier', () => {
   return gulp.src(['src/sass/**/*.scss', 'src/es6/*.js'])
+    .pipe(plumber({
+      errorHandler: function (err) {
+        console.log(err.messageFormatted);
+        this.emit('end');
+      }
+    }))
     .pipe(
       prettierPlugin(
         {
@@ -102,6 +109,7 @@ gulp.task('prettier', () => {
 //babel
 gulp.task('babel', () => {
   return gulp.src('src/es6/**/*.js')
+    .pipe(plumber())
     .pipe(babel())
     .pipe(gulp.dest('./dist/assets/js'));
 });
