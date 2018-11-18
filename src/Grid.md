@@ -50,5 +50,134 @@ flex,gridで使えるプロパティ(IE対応 autoprefixer対応)
   - min-content
   - max-content
 
+### grid-template-columns,gird-template-rows
+grid-template-columns: グリッドの横方向のサイズを指定
+gird-template-rows：グリッドの縦方向のサイズを指定
+
+指定できる値
+- px
+- fr
+- %
+- max-content
+- min-content
+- minmax
+- fit-content
+
+```html
+<div class="grid">
+  <div class="grid__item1"></div>
+  <div class="grid__item2"></div>
+  <div class="grid__item3"></div>
+  <div class="grid__item4"></div>
+</div>
+```
+
+display: gridは省略  
+
+pxでの指定
+```scss:
+.grid {
+  grid-template-columns: 500px 300px 200px;
+  grid-template-rows: 300px 200px 150px;
+}
+```
+
+
+frでの指定  
+frは全体を等分割した値  
+1fr 1fr 1fr　だと　1/3ずつ  
+2fr 1fr 1fr だと　最初のグリッドが全体の1/2になり、2,3番目のグリッドが残りの1/2を等分割した大きさになる  
+（2/4, 1/4,1/4になる）  
+```scss:
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height:600px; //グリッドアイテムがないとグリッドの高さがなく等分割できないので仮に600pxを指定
+}
+
+```
+
+px,frを組み合わせた指定  
+600px 1fr 1fr　だと最初のグリッドに600pxが割り当てられ、残りのグリッドを2つに等分割する
+
+```scss:
+.grid {
+  grid-template-columns: 600px 1fr 1fr;
+  grid-template-rows: 150px 1fr 1fr;
+  height:600px; //グリッドアイテムがないとグリッドの高さがなく等分割できないので仮に600pxを指定
+}
+```
+
+#### repeat
+repeatを使うことで短く記述できる  
+repeat(繰り返す数,サイズ指定)  
+
+1fr 1fr 1frの場合
+```scss:
+.grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+```
+
+repeatは途中に入れたり、何回も記述できるので以下のような書き方もできる
+
+pxとfrのくみあわせ（600px 1fr 1fr)
+```scss:
+.grid {
+  grid-template-columns: 600px repeat(2, 1fr);
+}
+```
+
+repeatを複数（1fr 1fr 1fr 2fr 2fr 2fr）
+```scss:
+.grid {
+  grid-template-columns: repeat(3, 1fr) repeat(3, 2fr);
+}
+```
+
+途中にrepeat(1fr 2fr 2fr 300px)
+```scss:
+.grid {
+  grid-template-columns: 1fr repeat(2, 2fr) 300px;
+}
+```
+
+max-content,min-content,minmax,fit-content等も指定できる  
+長くなるのであとで
+
+
+## grid-column,grid-row
+grid-template-columns,gird-template-rowsでグリッドを作成できたのでグリッドアイテムを配置してみる
+(位置を指定しなくてもIE以外は左上から自動配置してくれます)
+```html
+<div class="grid">
+  <div class="grid__item1"></div>
+  <div class="grid__item2"></div>
+  <div class="grid__item3"></div>
+  <div class="grid__item4"></div>
+</div>
+```
+
+```scss:
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+//グリッドアイテムが高さを持っていないため指定
+.grid div {
+  height: 200px;
+}
+```
+
+位置の指定
+grid-column,grid-rowを使って位置を指定していきます  
+この時に重要なのがグリッドラインです
+グリッドには以下のようにgrid-columnのグリッドラインが左から
+
+
+
 
 
