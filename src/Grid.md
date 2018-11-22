@@ -180,15 +180,117 @@ grid-rowのグリッドラインが上から1,2,3,4となっています
 
 
 grid-row、grid-columnは　開始のグリッドライン/終わりのグリッドラインで指定します
-左から2番目、上から2番目の位置に指定するとしたら
+左から2番目、上から2番目の位置に指定するとしたら以下のように記述します
 
 ```scss:
-grid-
+.grid__item1 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
 ```
 
+2つ以上のグリッドにまたがってグリッドアイテムを配置することもできます
+以下のように記述することで、左から２、3番目にまたがって配置できます
+```scss:
+.grid__item1 {
+  grid-column: 2/4;
+  grid-row: 2/3;
+}
+```
+
+また
+grid-column、grid-rowはショートハンドでの指定方法のため、
+開始位置、終了位置をそれぞれ別で指定することもできます
+- grid-column-start: grid-columnの開始位置
+- grid-column-end: grid-columnの終了位置
+- grid-row-start: grid-rowの開始位置
+- grid-row-end: grid-rowの終了位置
+
+```scss:
+.grid__item1 {
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+//別々で指定
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+```
+
+spanでの指定  
+grid-column、grid-rowではそれぞれ開始位置、終了位置を指定しましたが、
+開始位置だけ指定して、開始位置からどこのグリッドまで伸ばすか指定することもできます。
 
 
+```scss:
+.grid__item1 {
+  grid-column: 1/3;
+  grid-row: 1/2;
+}
 
+.grid__item1 {
+  grid-column: 1 / span 2; //グリッドライン1から2つ先のグリッドラインまで
+  grid-row: 1 / span 1;　//グリッドライン1から1つ先のグリッドラインまで
+  
+}
+```
+### grid-template-areas  
+ここまでは何番目から何番目まで〜という感じで指定してきましたが、もっとわかりやすく指定することができます  
+それがgrid-template-areasです  
+grid-template-areasではそれぞれのグリッドに名前をつけて指定することができます
+gird-template-columnsとgrid-template-rowsは今までと同じように指定します
+grid-template-areaの指定が他のCSSにはない書き方なので見慣れないかもしれないです。
+以下の指定の場合は
 
+上から1番目、左から1番目〜2番目のグリッドをitem1  
+上から1番目、左から3番目のグリッドをitem2  
+上から2番目、左から１番目のグリッドをitem3  
+上から2番目、左から2番目、3番目のグリッドをitem4  
+とそれぞれのグリッドに名前をつけています
+```:scss
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas: 
+    "item1 item1 item2";
+    "item3 item4 item4"
+}
+```
+
+そして名前をつけたグリッドにグリッドアイテムを配置していきます
+grid-area: 配置したい箇所の名前
+で指定します
+
+```scss
+.grid__item1 {
+  background-color: blue;
+  grid-area: item1; //grid-template-areaで指定したitem1に配置
+}
+
+.grid__item2 {
+  background-color: red;
+  grid-area: item2; //grid-template-areaで指定したitem2に配置
+}
+
+.grid__item3 {
+  background-color: pink;
+  grid-area: item3; //grid-template-areaで指定したitem3に配置
+}
+
+.grid__item4 {
+  background-color: gold;
+  grid-area: item4; //grid-template-areaで指定したitem4に配置
+}
+
+```
+
+grid-gapのautoprefixerでのIE対応はgrid-template-areaでの配置じゃないと効かないので
+grid-gapを使う場合はgrid-template-areaでの指定が必須になります
+
+### grid-template
+grid-template-areas,gird-template-columns,gird-template-rowsをまとめて指定
 
 
