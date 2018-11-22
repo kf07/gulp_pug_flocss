@@ -249,7 +249,7 @@ grid-template-areaの指定が他のCSSにはない書き方なので見慣れ�
 上から2番目、左から１番目のグリッドをitem3  
 上から2番目、左から2番目、3番目のグリッドをitem4  
 とそれぞれのグリッドに名前をつけています
-```:scss
+```scss:
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -264,7 +264,7 @@ grid-template-areaの指定が他のCSSにはない書き方なので見慣れ�
 grid-area: 配置したい箇所の名前
 で指定します
 
-```scss
+```scss:
 .grid__item1 {
   background-color: blue;
   grid-area: item1; //grid-template-areaで指定したitem1に配置
@@ -292,5 +292,27 @@ grid-gapを使う場合はgrid-template-areaでの指定が必須になります
 
 ### grid-template
 grid-template-areas,gird-template-columns,gird-template-rowsをまとめて指定
+grid-templateではより視覚的に記述することができます
+視覚的に記述並んでいるためrepeat関数を使うことができません
+```scss:
+  //それぞれ別で指定
+.grid {
+  display: grid;
+  grid-template-columns: 150px 350px 500px;
+  grid-template-rows: 200px 400px;
+  grid-template-areas:
+    'item1 item1 item2'
+    'item3 item4 item4';
+}
 
 
+///まとめて指定
+.grid {
+  display: grid;
+  grid-template:
+    'item1 item1 item2' 200px //areasの後にその行の高さ(rows)を指定
+    'item3 item4 item4' 400px //areasの後にその行の高さ(rows)を指定
+    / 150px 350px 500px;
+    // その列の幅(columns)を指定　一番左から150px,350px,500px
+}
+```

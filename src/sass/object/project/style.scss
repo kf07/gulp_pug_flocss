@@ -1,17 +1,16 @@
 .grid {
   width: 1000px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-template-areas:
-    'item1 item1 item2'
-    'item3 item4 item4';
+  //grid-template-columns: 150px 350px 500px;
+  //grid-template-rows: 200px 400px;
+  //grid-template-areas:
+  //  'item1 item1 item2'
+  //  'item3 item4 item4';
+  grid-template:
+    'item1 item1 item2' 200px
+    'item3 item4 item4' 400px
+    / 150px 350px 500px;
 }
-
-.grid div {
-  height: 200px;
-}
-
 .grid__item1 {
   background-color: blue;
   grid-area: item1;
