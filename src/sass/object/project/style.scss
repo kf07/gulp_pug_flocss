@@ -1,15 +1,14 @@
 .grid {
-  width: 1000px;
   display: grid;
-  //grid-template-columns: 150px 350px 500px;
-  //grid-template-rows: 200px 400px;
-  //grid-template-areas:
-  //  'item1 item1 item2'
-  //  'item3 item4 item4';
+  gap: 10px;
   grid-template:
     'item1 item1 item2' 200px
     'item3 item4 item4' 400px
-    / 150px 350px 500px;
+    / minmax(100px, 200px) 350px 500px;
+  justify-content: space-between;
+  height: 1000px;
+  align-content: center;
+  place-content: space-between center;
 }
 .grid__item1 {
   background-color: blue;

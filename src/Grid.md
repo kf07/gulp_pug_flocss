@@ -29,12 +29,12 @@ IE対応 autoprefixer対応
 　grid-auto-flow 　をまとめて指定
 
 flex,gridで使えるプロパティ(IE対応 autoprefixer対応)
+- align-content
 - align-self
-- justify-self
-- justify-items
 - align-items
 - justify-content
-- align-content
+- justify-content
+- justify-self
 - place-content
 - order
 
@@ -63,7 +63,7 @@ gird-template-rows：グリッドの縦方向のサイズを指定
 - minmax
 - fit-content
 
-```html
+```html:
 <div class="grid">
   <div class="grid__item1"></div>
   <div class="grid__item2"></div>
@@ -292,7 +292,7 @@ grid-gapを使う場合はgrid-template-areaでの指定が必須になります
 
 ### grid-template
 grid-template-areas,gird-template-columns,gird-template-rowsをまとめて指定
-grid-templateではより視覚的に記述することができます
+grid-templateではより視覚的に記述することができます  
 視覚的に記述並んでいるためrepeat関数を使うことができません
 ```scss:
   //それぞれ別で指定
@@ -316,3 +316,54 @@ grid-templateではより視覚的に記述することができます
     // その列の幅(columns)を指定　一番左から150px,350px,500px
 }
 ```
+
+### gap(grid-gap)
+gapを指定することでgridの間に余白を作ることができます   
+row-gapでは縦のみ、column-gapで横のみ指定することもできます  
+当初はgrid-gap,grid-row-gap,grid-column-gapだったが、grid-接頭語なしに変更された  
+grid-接頭語があっても動作する
+
+
+
+### flex,gridの位置調整プロパティ
+
+#### align-items
+親要素に指定  
+グリッド内で要素の縦位置をどこに揃えるか指定  
+flexで指定した時と同じようにグリッドの高さと同じに揃えるのが無効になる
+
+#### align-self
+子要素に指定  
+指定した要素だけ親要素のalign-itemsを上書きして配置する
+
+#### align-content
+親要素に指定  
+グリッド全体をどこに寄せるか指定
+
+
+
+#### justify-content
+親要素に指定
+グリッドのセルの横の間隔を調整
+
+
+#### justify-items
+親要素に指定  
+グリッド内で要素の横位置をどこに揃えるか指定  
+指定しない場合グリッドアイテムはグリッドセルと同じ幅まで広がるが、
+指定した場合はそれが無効になる
+
+#### justify-self
+子要素に指定
+指定した要素だけ親要素のjustify-itemsを上書きして配置する
+
+
+#### place-content
+justify-contentとalign-itemsを一括指定  
+最初の値がalign-contentの値、二番目の値がjustify-content の値
+
+
+
+#### order
+一つずつ位置を指定する場合は必要ないが、自動配置の時に順番を変えることができる
+
