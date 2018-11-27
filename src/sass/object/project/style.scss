@@ -1,31 +1,33 @@
 .grid {
   display: grid;
   gap: 10px;
-  grid-template:
-    'item1 item1 item2' 200px
-    'item3 item4 item4' 400px
-    / minmax(100px, 200px) 350px 500px;
-  justify-content: space-between;
-  height: 1000px;
-  align-content: center;
-  place-content: space-between center;
+  //最大で300px使用可能になる 要素がそれより小さい場合はそれに応じて小さくなる
+  grid-template-columns: fit-content(300px) 1fr;
 }
 .grid__item1 {
   background-color: blue;
-  grid-area: item1;
 }
 
 .grid__item2 {
   background-color: red;
-  grid-area: item2;
 }
 
 .grid__item3 {
   background-color: pink;
-  grid-area: item3;
 }
 
-.grid__item4 {
-  background-color: gold;
-  grid-area: item4;
+#container {
+  display: grid;
+  grid-template-columns: fit-content(300px) fit-content(300px) 1fr 1fr;
+  grid-gap: 5px;
+  box-sizing: border-box;
+  height: 200px;
+  width: 100%;
+  background-color: #8cffa0;
+  padding: 10px;
+}
+
+#container > div {
+  background-color: #8ca0ff;
+  padding: 5px;
 }

@@ -367,3 +367,28 @@ justify-contentとalign-itemsを一括指定
 #### order
 一つずつ位置を指定する場合は必要ないが、自動配置の時に順番を変えることができる
 
+
+#### minmax
+grid-template-columnsに指定して最小の値、最大の値を指定できる
+minmax(最小の値,最大の値)で指定  
+指定できる値
+- px
+- %
+- fr
+- min-content
+- max-content
+
+
+```scss:
+.grid {
+  display: grid;
+  //最初のセルが200px 最後のセルが300p　間のセルが
+  grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+}
+```
+
+#### fit-content
+fit-content(最大の値)で指定  
+fit-content(300px)の場合は最大で300pxまで広がる  
+要素がそれより小さい場合はそれに応じて小さくなる
+
