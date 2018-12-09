@@ -102,6 +102,7 @@ gulp.task('prettier', () => {
 //babel
 gulp.task('babel', () => {
   return gulp.src('src/es6/**/*.js')
+    .pipe(plumber())
     .pipe(babel())
     .pipe(gulp.dest('./dist/assets/js'));
 });
@@ -145,8 +146,8 @@ gulp.task('bs-reload', () => {
 // default
 gulp.task('default', ['browser-sync'], () => {
   gulp.watch('src/pug/**/*.pug', ['pug']);
-  gulp.watch('src/**/*.scss', ['prettier', 'sass']);
-  gulp.watch('src/**/*.js', ['prettier', 'babel', 'bs-reload']);
+  gulp.watch('src/**/*.scss', ['sass']);
+  gulp.watch('src/**/*.js', ['babel', 'bs-reload']);
   gulp.watch('dist/**/*.html', ['html']);
   gulp.watch('dist/**/*.html', ['bs-reload']);
   gulp.watch('dist/**/*.css', ['bs-reload']);
