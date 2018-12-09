@@ -15,7 +15,7 @@ IE対応 autoprefixer対応
 - grid-row-gap
 - grid-column-gap
 - grid-gap
-- grid-gap(gap)（IE対応はgrid-areaで指定した場合のみ）
+- gap(grid-gap)（IE対応はgrid-areaで指定した場合のみ）
 
 非対応
 - grid-auto-columns
@@ -72,11 +72,10 @@ gird-template-rows：グリッドの縦方向のサイズを指定
 </div>
 ```
 
-display: gridは省略  
-
 pxでの指定
 ```scss:
 .grid {
+  display: grid;
   grid-template-columns: 500px 300px 200px;
   grid-template-rows: 300px 200px 150px;
 }
@@ -379,11 +378,28 @@ minmax(最小の値,最大の値)で指定
 - max-content
 
 
+### auto-fill
+最初のセルと最後のセルの大きさを指定して間のセルの大きさをauto-fillで指定した値で入るだけ敷き詰める
+repeat(auto-fill,指定の値)
 ```scss:
 .grid {
   display: grid;
-  //最初のセルが200px 最後のセルが300p　間のセルが
+  //最初のセルが200px 最後のセルが300px 間のセルが100px
   grid-template-columns: 200px repeat(auto-fill, 100px) 300px;
+}
+```
+
+### auto-fit
+親要素に余白にスペースが余る場合、スペースを埋めるようにグリッドの大きさが広がる
+repeat(auto-fit, minmax(200px, 1fr))でグリッドアイテムが４つの場合、
+- 親要素のサイズが800px以上のとき４つのグリッドアイテムが横に並び、親要素の4分の1(1fr)ずつになる
+- 親要素のサイズが799以下のとき４番目のグリッドが下に落ちて、3分の１(1fr)ずつになる
+- 親要素のサイズが599以下のとき３、4番目のグリッドが落ちて、2分の１(1fr)ずつになる
+- 親要素のサイズが399以下のとき全て縦に並んで親要素の同じ幅になる
+```scss
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 ```
 
@@ -391,4 +407,5 @@ minmax(最小の値,最大の値)で指定
 fit-content(最大の値)で指定  
 fit-content(300px)の場合は最大で300pxまで広がる  
 要素がそれより小さい場合はそれに応じて小さくなる
+max-widthみたいな感じ？
 

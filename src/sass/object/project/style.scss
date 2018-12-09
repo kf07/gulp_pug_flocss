@@ -1,9 +1,8 @@
 .grid {
   display: grid;
-  gap: 10px;
-  //最大で300px使用可能になる 要素がそれより小さい場合はそれに応じて小さくなる
-  grid-template-columns: fit-content(300px) 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
+
 .grid__item1 {
   background-color: blue;
 }
@@ -16,18 +15,6 @@
   background-color: pink;
 }
 
-#container {
-  display: grid;
-  grid-template-columns: fit-content(300px) fit-content(300px) 1fr 1fr;
-  grid-gap: 5px;
-  box-sizing: border-box;
-  height: 200px;
-  width: 100%;
-  background-color: #8cffa0;
-  padding: 10px;
-}
-
-#container > div {
-  background-color: #8ca0ff;
-  padding: 5px;
+.grid__item4 {
+  background-color: gold;
 }
