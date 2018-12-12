@@ -1,10 +1,9 @@
 .grid {
   display: grid;
   width: 1000px;
-  grid-template:
-    'item1 item1 item2' 200px //areasの後にその行の高さ(rows)を指定
-    'item3 item4 item4' 400px //areasの後にその行の高さ(rows)を指定
-    / 150px 350px 500px;
+  grid-template: 'item1 item1 item2' 200px//areasの後にその行の高さ(rows)を指定
+    'item3 item4 item4'400px//areasの後にその行の高さ(rows)を指定
+    /150px 350px 500px;
   // その列の幅(columns)を指定　一番左から150px,350px,500px
   margin: 60px auto 0;
 }
