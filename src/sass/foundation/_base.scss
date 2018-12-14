@@ -14,3 +14,9 @@ html {
     font-size: map-get($_font-size, md);
   }
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
