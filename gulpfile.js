@@ -76,7 +76,7 @@ gulp.task('sass', () => {
         // その他は最新2バージョンで必要なベンダープレフィックスを付与する設定
         browsers: ["last 2 versions", "ie >= 11", "Android >= 4"],
         cascade: false,
-        grid: true
+        grid: 'autoplace'
       }),
       // stylelint(),
       // postcssReporter({clearMessages: true})
