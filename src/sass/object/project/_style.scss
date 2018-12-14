@@ -34,11 +34,8 @@
 
 .gallery {
   display: grid;
-  grid-template:
-    'item1 item2 item3' 250px
-    'item4 item5 item6' 250px
-    'item7 item8 item9' 250px
-    /1fr 1fr 1fr;
+  grid-template-rows:repeat(3,250px);
+  grid-template-columns: repeat(3,1fr);
   width: 900px;
   gap: 10px;
   margin: 50px auto 10px;
@@ -57,5 +54,5 @@
 }
 
 .v-move {
-  transition: transform .7s ease-out;
+  transition: transform .5s ease-out;
 }
