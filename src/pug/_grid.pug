@@ -6,8 +6,15 @@
 //      - var y =  i
 //    .gallery__item(v-bind:style="{gridArea: NumItem[" + [i - 1]+ "]}")
 //      img(src=image_path + "modal_thumb" + [y] + ".jpg")
+//
+//transition-group(class="gallery" tag="ul")
+//  li(v-for="item in sortedList" v-bind:key="item.id")
+//    img(v-bind:src="'/assets/img/modal_thumb' + item.name + '.jpg'")
+//button.button(v-on:click="order=!order") ボタン
 
-transition-group(class="gallery" tag="ul")
-  li(v-for="item in sortedList" v-bind:key="item.id")
-    img(v-bind:src="'/assets/img/modal_thumb' + item.name + '.jpg'")
-button.button(v-on:click="order=!order") ボタン
+
+.grid
+  .grid__item1
+  .grid__item2
+  .grid__item3
+  .grid__item4

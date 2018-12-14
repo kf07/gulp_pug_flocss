@@ -54,5 +54,14 @@
 }
 
 .v-move {
-  transition: transform .5s ease-out;
+  transition: .5s ease-out;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-rows: repeat(3,250px);
+  grid-template-columns: repeat(3,1fr);
+  width: 900px;
+  gap: 10px;
 }
