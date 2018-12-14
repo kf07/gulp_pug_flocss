@@ -55,3 +55,7 @@
   display: block;
   padding: 20px 0;
 }
+
+.v-move {
+  transition: transform .7s ease-out;
+}

@@ -1,29 +1,22 @@
 const app = new Vue({
   el: '#app',
   data: {
-    activeClass: false,
-    NumItem: ['item1','item2','item3','item4','item5','item6','item7','item8','item9'],
-    Num: [1,2,3,4,5,6,7,8,9],
-    isActive: true,
-    aaa: 'red'
+    order:false,
+    list: [
+      {id:1, name:'01'},
+      {id:2, name:'02'},
+      {id:3, name:'03'},
+      {id:4, name:'04'},
+      {id:5, name:'05'},
+      {id:6, name:'06'},
+      {id:7, name:'07'},
+      {id:8, name:'08'},
+      {id:9, name:'09'}
+    ]
   },
-  methods: {
-    handleClick: function handleClick() {
-      const min = 1;
-      const max = 9;
-      const beforeNum =[].concat(this.Num);
-      this.Num = [];
-      this.NumItem = [];
-      for (let i = 0; i < 9; i++){
-        let random = Math.floor(Math.random() * (max + 1 - min) + min);
-        while(this.Num.indexOf(random) >= 0 && random !== beforeNum[i]){
-          random = Math.floor(Math.random() * (max + 1 - min) + min);
-        }
-        const randomItem = 'item' + random;
-        this.Num.push(random);
-        console.log(random,beforeNum[i]);
-        this.NumItem.push(randomItem);
-      }
+  computed: {
+    sortedList: function(){
+      return _.shuffle(this.list,'id', this.order ? 'desc': 'asc')
     }
   }
 });
