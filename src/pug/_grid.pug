@@ -1,59 +1,11 @@
-//.container
-//  header.header
-//    .logo ロゴ
-//    nav.nav
-//      ul.nav__list
-//        li.nav__item
-//          a(href="#") ナビ１
-//        li.nav__item
-//          a(href="#") ナビ２
-//        li.nav__item
-//          a(href="#") ナビ３
-//        li.nav__item
-//          a(href="#") ナビ４
-//  ul.article__list
-//    li.article__item1
-//      article.article
-//       a(href="")
-//        img(src="https://unsplash.it/546/220")
-//       .article__title テストストテスト
-//    li.article__item2
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/294/220")
-//        .article__title テストストテスト
-//    li.article__item3
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/294/220")
-//        .article__title テストストテスト
-//    li.article__item4
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/294/220")
-//        .article__title テストストテスト
-//    li.article__item5
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/294/220")
-//        .article__title テストストテスト
-//    li.article__item6
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/294/220")
-//        .article__title テストストテスト
-//    li.article__item7
-//      article.article
-//        a(href="")
-//          img(src="https://unsplash.it/546/220")
-//        .article__title テストストテスト
-//  .sidenav
-
 .gallery
   -for (var i = 1; i<10; i++)
     if i < 10
       - var y = "0" + i
     else
       - var y =  i
-    .gallery__item
+    .gallery__item(v-bind:style="{gridArea: NumItem[" + [i - 1]+ "]}")
       img(src=image_path + "modal_thumb" + [y] + ".jpg")
+
+button.button(v-on:click="handleClick") ボタン
+p.p {{Num[1]}}
