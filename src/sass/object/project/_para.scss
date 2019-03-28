@@ -13,7 +13,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    animation: anime1 .8s ease-out .3s forwards;
+    animation: anime1 1s cubic-bezier(0.215, 0.61, 0.355, 1) .3s forwards;
   }
 }
 
